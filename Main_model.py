@@ -10,10 +10,10 @@ from scipy.spatial import distance
 # Work out the distance between the two sets of y and xs.
 
 # Variables:
-y0 = 50
-x0 = 51
-y1 = 54
-x1 = 49
+y0 = random_number.randint(0, 100)
+x0 = random_number.randint(0, 100)
+y1 = random_number.randint(0, 100)
+x1 = random_number.randint(0, 100)
 case_check = False
 pointer = 0
 
