@@ -11,9 +11,9 @@ from scipy.spatial import distance
 
 # Variables:
 y0 = 50
-x0 = 50
-y1 = 50
-x1 = 50
+x0 = 51
+y1 = 54
+x1 = 49
 case_check = False
 pointer = 0
 
