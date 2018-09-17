@@ -41,8 +41,8 @@ print("Agent 2: Position of x: " + str(generate_position(x1)))
 
 #Calculating the euclidean distance between two agents, I run the distance over 100 times for various results
 while case_check != True:
-	diff_y_coor = (distance.euclidean(generate_position(y0), generate_position(y1)))**2
-	diff_x_coor = (distance.euclidean(generate_position(x0), generate_position(x1)))**2
+	diff_y_coor = distance.euclidean(generate_position(y0), generate_position(y1))
+	diff_x_coor = distance.euclidean(generate_position(x0), generate_position(x1))
 	answer = (diff_y_coor + diff_x_coor)**0.5
 	print(answer)
 	pointer = pointer + 1
