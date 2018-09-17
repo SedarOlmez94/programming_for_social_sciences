@@ -1,4 +1,6 @@
 import random as random_number
+import numpy as np
+from scipy.spatial import distance
 # Algorithm to be implemented: 
 
 # Make a y variable.
@@ -22,6 +24,7 @@ def generate_position(value1):
 	return value1
 
 #Main: 
+'''
 print("Agent 1: Position of y: " + str(generate_position(y0)))
 print("Agent 1: Position of y: " + str(generate_position(y0)))
 
@@ -36,3 +39,14 @@ print("Agent 2: Position of y: " + str(generate_position(y1)))
 
 print("Agent 2: Position of x: " + str(generate_position(x1)))
 print("Agent 2: Position of x: " + str(generate_position(x1)))
+
+'''
+
+
+#Calculating the euclidean distance between two agents
+diff_y_coor = (distance.euclidean(generate_position(y0), generate_position(y1)))**2
+diff_x_coor = (distance.euclidean(generate_position(x0), generate_position(x1)))**2
+answer = (diff_y_coor + diff_x_coor)**0.5
+
+# answer = (((y0 - y1)**2) + ((x0 - x1)**2))**0.5 could have been used. 
+print (answer)
