@@ -1,8 +1,9 @@
 import random
 class Agent:
 
-	def __init__(self, environment):
+	def __init__(self, environment, agents):
 		self.environment = environment
+		self.agents = agents
 		self.store = 0
 		self._x = random.randint(0,99)
 		self._y = random.randint(0,99)
@@ -22,3 +23,20 @@ class Agent:
 		if self.environment[self._y][self._x] > 10:
 			self.environment[self._y][self._x] -= 10
 			self.store += 10
+
+	def get_agent(self, index_of_agent):
+		self.agents[index_of_agent]
+		print (self.agents[index_of_agent])
+
+	def share_with_neighbours(self, neighbourhood):
+		for agents in self.agents:
+			distance = self.distance_between(agents)
+			if distance <= neighbourhood:
+				sum = self.store + agents.store
+				avg = sum /2
+				self.store = avg
+				agents.store = avg
+				print("sharing " + str(distance) + " " + str(avg))
+
+	def distance_between(self, agent):
+		return (((self._x - agent._x)**2) + ((self._y - agent._y)**2))**0.5

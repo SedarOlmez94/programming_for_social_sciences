@@ -5,11 +5,12 @@ import agentframework
 import csv
 
 def distance_between(agents_row_a, agents_row_b):
-    return (((agents_row_a.x - agents_row_b.x)**2) +
-        ((agents_row_a.y - agents_row_b.y)**2))**0.5
+    return (((agents_row_a._x - agents_row_b._x)**2) +
+        ((agents_row_a._y - agents_row_b._y)**2))**0.5
 environment = []
 num_of_agents = 10
 num_of_iterations = 100
+neighbourhood = 20
 agents = []
 
 #Lines here happen before any data is processed
@@ -28,12 +29,19 @@ f.close()
 
 # Make the agents.
 for i in range(num_of_agents):
-    agents.append(agentframework.Agent(environment))
+    agents.append(agentframework.Agent(environment, agents))
 
 for j in range(num_of_iterations):
+    random.shuffle(agents)
     for i in range(num_of_agents):
         agents[i].move()
         agents[i].eat()
+        agents[i].share_with_neighbours(neighbourhood)
+
+
+# print (agents)
+# agentA = agentframework.Agent(environment, agents)
+# agentA.get_agent(0)
 
 matplotlib.pyplot.xlim(0, 99)
 matplotlib.pyplot.ylim(0, 99)
