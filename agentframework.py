@@ -1,10 +1,12 @@
 import random
 class Agent:
 
-	def __init__(self):
+	def __init__(self, environment):
+		self.environment = environment
+		self.store = 0
 		self._x = random.randint(0,99)
 		self._y = random.randint(0,99)
-	
+
 	# Move the agents.
 	def move(self):
 		if random.random() < 0.5:
@@ -16,3 +18,7 @@ class Agent:
 		else:
 			self._x = (self._x - 1) % 100
 
+	def eat(self):
+		if self.environment[self._y][self._x] > 10:
+			self.environment[self._y][self._x] -= 10
+			self.store += 10
