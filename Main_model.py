@@ -33,11 +33,12 @@ while case_check != True:
 	pointer = pointer + 1
 	if pointer == 100:
 		case_check = True
-
+print (agents)
 matplotlib.pyplot.ylim(0, 99)
 matplotlib.pyplot.xlim(0, 99)
-matplotlib.pyplot.scatter(agents[0][1],agents[0][0])
-matplotlib.pyplot.scatter(agents[1][1],agents[1][0])
+for i in range(number_of_agents-1):
+	matplotlib.pyplot.scatter(agents[i][1],agents[i][0])
+	#matplotlib.pyplot.scatter(agents[1][1],agents[1][0])
 furthest_east_agent = max(agents)
 matplotlib.pyplot.scatter(furthest_east_agent[0], furthest_east_agent[1], color='red')
 matplotlib.pyplot.show()
