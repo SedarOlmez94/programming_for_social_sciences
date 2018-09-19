@@ -37,7 +37,7 @@ class Agent:
 				avg = sum /2
 				self.store = avg
 				agents.store = avg
-				print("sharing " + str(distance) + " " + str(avg))
+				return ("Neighbour distance: " + str(distance))
 
 	def distance_between(self, agent):
 		return (((self._x - agent._x)**2) + ((self._y - agent._y)**2))**0.5

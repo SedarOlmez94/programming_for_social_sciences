@@ -35,10 +35,10 @@ def update(frame_number):
     matplotlib.pyplot.imshow(environment)
 
     for i in range(num_of_agents):
+        matplotlib.pyplot.annotate(agents[i].share_with_neighbours(neighbourhood), (agents[i]._x,agents[i]._y), (agents[i]._x,agents[i]._y+2))
         matplotlib.pyplot.scatter(agents[i]._x,agents[i]._y)
         print(agents[i]._x,agents[i]._y)
-    for j in range(3):
-        matplotlib.pyplot.scatter(agents[j]._x,agents[j]._y, color = "black")
+
 
 def gen_function():
     a = 0
