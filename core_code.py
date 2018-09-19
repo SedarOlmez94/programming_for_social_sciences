@@ -24,29 +24,27 @@ def distance_between(agents_row_a, agents_row_b):
         ((agents_row_a._y - agents_row_b._y)**2))**0.5
 
 def update(frame_number):
-
     fig.clear()
-    #global carry_on
 
     for i in range(num_of_agents):
             agents[i].move()
 
-    # if random.random() < 0.1:
-    #     carry_on = False
-    #     print("stopping condition")
-
     matplotlib.pyplot.xlim(0, 99)
     matplotlib.pyplot.ylim(0, 99)
     matplotlib.pyplot.imshow(environment)
+
     for i in range(num_of_agents):
         matplotlib.pyplot.scatter(agents[i]._x,agents[i]._y)
         print(agents[i]._x,agents[i]._y)
+    for j in range(3):
+        matplotlib.pyplot.scatter(agents[j]._x,agents[j]._y, color = "black")
 
 def gen_function():
     a = 0
     while (a < num_of_iterations):
         yield a			# Returns control and waits next call.
         a = a + 1
+
 
 #Lines here happen before any data is processed
 f = open('in.txt', newline='')
