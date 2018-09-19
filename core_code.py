@@ -25,10 +25,11 @@ def distance_between(agents_row_a, agents_row_b):
 
 def update(frame_number):
     fig.clear()
-
+    global environment
     for i in range(num_of_agents):
             agents[i].move()
-
+            agents[i].eat()
+            agents[i].share_with_neighbours(neighbourhood)
     matplotlib.pyplot.xlim(0, 99)
     matplotlib.pyplot.ylim(0, 99)
     matplotlib.pyplot.imshow(environment)
@@ -62,14 +63,6 @@ f.close()
 
 for i in range(num_of_agents):
     agents.append(agentframework.Agent(environment, agents))
-
-for j in range(num_of_iterations):
-    random.shuffle(agents)
-    for i in range(num_of_agents):
-        agents[i].move()
-        agents[i].eat()
-        agents[i].share_with_neighbours(neighbourhood)
-
 
 animation = matplotlib.animation.FuncAnimation(fig, update, frames=gen_function, repeat=False)
 matplotlib.pyplot.show()
