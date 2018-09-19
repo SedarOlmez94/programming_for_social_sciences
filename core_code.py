@@ -5,9 +5,9 @@ import matplotlib.animation
 import agentframework
 import csv
 import sys
+
+
 matplotlib.use('macosx')
-
-
 environment = []
 ''' We pass the arguments for iterations, agents and neighbourhood when executing
     the script.'''
@@ -16,6 +16,7 @@ ax = fig.add_axes([0, 0, 1, 1])
 num_of_iterations = int(sys.argv[1])
 num_of_agents = int(sys.argv[2])
 neighbourhood = int(sys.argv[3])
+#carry_on = True
 agents = []
 
 def distance_between(agents_row_a, agents_row_b):
@@ -25,9 +26,14 @@ def distance_between(agents_row_a, agents_row_b):
 def update(frame_number):
 
     fig.clear()
+    #global carry_on
 
     for i in range(num_of_agents):
             agents[i].move()
+
+    # if random.random() < 0.1:
+    #     carry_on = False
+    #     print("stopping condition")
 
     matplotlib.pyplot.xlim(0, 99)
     matplotlib.pyplot.ylim(0, 99)
@@ -35,6 +41,12 @@ def update(frame_number):
     for i in range(num_of_agents):
         matplotlib.pyplot.scatter(agents[i]._x,agents[i]._y)
         print(agents[i]._x,agents[i]._y)
+
+def gen_function():
+    a = 0
+    while (a < num_of_iterations):
+        yield a			# Returns control and waits next call.
+        a = a + 1
 
 #Lines here happen before any data is processed
 f = open('in.txt', newline='')
@@ -60,16 +72,8 @@ for j in range(num_of_iterations):
         agents[i].eat()
         agents[i].share_with_neighbours(neighbourhood)
 
-# print (agents)
-# agentA = agentframework.Agent(environment, agents)
-# agentA.get_agent(0)
-# matplotlib.pyplot.xlim(0, 99)
-# matplotlib.pyplot.ylim(0, 99)
-# matplotlib.pyplot.imshow(environment)
-# for i in range(num_of_agents):
-#     matplotlib.pyplot.scatter(agents[i]._x,agents[i]._y)
-#     #print(agents[i]._x,agents[i]._y)
-animation = matplotlib.animation.FuncAnimation(fig, update, interval=1)
+
+animation = matplotlib.animation.FuncAnimation(fig, update, frames=gen_function, repeat=False)
 matplotlib.pyplot.show()
 
 for agents_row_a in agents:
