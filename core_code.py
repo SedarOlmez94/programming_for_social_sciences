@@ -3,14 +3,17 @@ import operator
 import matplotlib.pyplot
 import agentframework
 import csv
+import sys
 
 def distance_between(agents_row_a, agents_row_b):
     return (((agents_row_a._x - agents_row_b._x)**2) +
         ((agents_row_a._y - agents_row_b._y)**2))**0.5
 environment = []
-num_of_agents = 10
-num_of_iterations = 100
-neighbourhood = 20
+''' We pass the arguments for iterations, agents and neighbourhood when executing
+    the script.'''
+num_of_iterations = int(sys.argv[1])
+num_of_agents = int(sys.argv[2])
+neighbourhood = int(sys.argv[3])
 agents = []
 
 #Lines here happen before any data is processed
