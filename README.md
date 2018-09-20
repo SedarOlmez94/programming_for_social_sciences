@@ -15,3 +15,4 @@ Watch how the poacher agent finds the sheep:
 
 # Few notes:
 - The Main_model.py was my training script to test out a few techniques, the actual code is located in the core_code.py script and agentframework.py script.
+- I am against all forms of violence towards animals, this was just an experiment. 
