@@ -6,5 +6,5 @@ Launch terminal and pass the arguments tailored to your needs:
 ![terminal_image](terminal.png)
 
 # Step 2)
-Watch how to poacher agent finds the sheep: 
+Watch how the poacher agent finds the sheep: 
 ![gif_of_agents](execution.gif)
