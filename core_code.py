@@ -1,3 +1,4 @@
+# Libraries:
 import random
 import operator
 import matplotlib.pyplot
@@ -5,9 +6,9 @@ import matplotlib.animation
 import agentframework
 import csv
 import sys
-
-
 matplotlib.use('macosx')
+
+# Global variables:
 environment = []
 ''' We pass the arguments for iterations, agents and neighbourhood when executing
     the script.'''
@@ -17,17 +18,19 @@ num_of_iterations = int(sys.argv[1])
 num_of_agents = int(sys.argv[2])
 neighbourhood = int(sys.argv[3])
 poacher_neighbourhood = int(sys.argv[4])
-#carry_on = True
 agents = []
-# Create the poacher agent
 poacher = agentframework.Agent(environment, agents)
 kill_count = 0
+
+# Methods:
 def distance_between(agents_row_a, agents_row_b):
+"""Calculates the distance between two agents, used the pythagoras theory."""
     return (((agents_row_a._x - agents_row_b._x)**2) +
         ((agents_row_a._y - agents_row_b._y)**2))**0.5
 
 def update(frame_number):
-
+"""The update function animates the plain so agents move, eat and poacher shoots.
+    Matplot was used heavily for the backend and front-end of the simulation."""
     fig.clear()
     global num_of_agents
     global environment
@@ -50,12 +53,15 @@ def update(frame_number):
     matplotlib.pyplot.text(45, 105, "KILLS: " +str(kill_count), bbox=dict(facecolor='red', alpha=0.5), fontsize = 15)
 
 def gen_function():
+    """The generate function loops the simulation until the `number of iterations` is met."""
     a = 0
     while (a < num_of_iterations):
         yield a			# Returns control and waits next call.
         a = a + 1
 
 def assassinate():
+    """A special method used to allow the poacher agent to shoot any sheep in its proximity and remove it
+        from the agents[] list."""
     global num_of_agents
     global kill_count
     poacher_agent = agents[-1]
@@ -66,7 +72,7 @@ def assassinate():
             kill_count = kill_count + 1
             del agents[i]
 
-#Lines here happen before any data is processed
+"""Here we read the data from the in.txt file to produce the environment map. Pixelation.""""
 f = open('in.txt', newline='')
 reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
 for row in reader:
@@ -80,8 +86,10 @@ for row in reader:
 # Lines here happen after all the data  is processed
 f.close()
 
+# Add the agents to the agents[] list
 for i in range(num_of_agents):
     agents.append(agentframework.Agent(environment, agents))
+
 #Add poacher to the list of agents.
 agents.append(poacher)
 animation = matplotlib.animation.FuncAnimation(fig, update, frames=gen_function, repeat=False)
