@@ -1,4 +1,5 @@
 import random
+import unittest
 
 class Agent:
 
@@ -46,3 +47,14 @@ class Agent:
 	# Calculate the distance between agents
 	def distance_between(self, agent):
 		return (((self._x - agent._x)**2) + ((self._y - agent._y)**2))**0.5
+
+class MyTest(unittest.TestCase):
+	def get_agent(self):
+		self.assertEqual(0)
+		self.assertEqual(self.agents[-1])
+
+	def share_with_neighbours(self):
+		self.assertEqual(0)
+
+	def distance_between(self):
+		self.assertEqual(self.agents[0])
