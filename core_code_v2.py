@@ -6,7 +6,6 @@ import matplotlib.animation
 import agentframework
 import csv
 import sys
-import unittest
 matplotlib.use('macosx')
 
 # Global variables:
@@ -99,13 +98,3 @@ print (kill_count)
 for agents_row_a in agents:
     for agents_row_b in agents:
         distance = distance_between(agents_row_a, agents_row_b)
-
-
-class MyTest(unittest.TestCase):
-    def distance_between(self):
-        self.assertEqual(0, 0)
-        self.assertEqual(5, 3)
-        self.assertEqual(130,499)
-
-    def update(self):
-        self.assertEqual(0)
