@@ -24,12 +24,12 @@ kill_count = 0
 
 # Methods:
 def distance_between(agents_row_a, agents_row_b):
-"""Calculates the distance between two agents, used the pythagoras theory."""
+    """Calculates the distance between two agents, used the pythagoras theory."""
     return (((agents_row_a._x - agents_row_b._x)**2) +
         ((agents_row_a._y - agents_row_b._y)**2))**0.5
 
 def update(frame_number):
-"""The update function animates the plain so agents move, eat and poacher shoots.
+    """The update function animates the plain so agents move, eat and poacher shoots.
     Matplot was used heavily for the backend and front-end of the simulation."""
     fig.clear()
     global num_of_agents
@@ -72,7 +72,7 @@ def assassinate():
             kill_count = kill_count + 1
             del agents[i]
 
-"""Here we read the data from the in.txt file to produce the environment map. Pixelation.""""
+"""Here we read the data from the in.txt file to produce the environment map. Pixelation."""
 f = open('in.txt', newline='')
 reader = csv.reader(f, quoting=csv.QUOTE_NONNUMERIC)
 for row in reader:
