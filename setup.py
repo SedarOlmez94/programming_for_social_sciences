@@ -14,7 +14,7 @@ setuptools.setup(
     url="https://github.com/SedarOlmez94/programming_for_social_sciences",
     packages=setuptools.find_packages(),
     classifiers=[
-        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 3.7",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
