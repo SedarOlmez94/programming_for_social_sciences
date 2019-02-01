@@ -8,7 +8,6 @@ import matplotlib.animation
 import agentframework
 import csv
 import sys
-matplotlib.use('PS')
 
 # Global variables:
 environment = []
