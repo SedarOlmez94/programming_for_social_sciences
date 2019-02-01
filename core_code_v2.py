@@ -14,10 +14,10 @@ environment = []
     the script.'''
 fig = matplotlib.pyplot.figure(figsize=(7, 7))
 ax = fig.add_axes([0, 0, 1, 1])
-num_of_iterations = int(sys.argv[1])
-num_of_agents = int(sys.argv[2])
-neighbourhood = int(sys.argv[3])
-poacher_neighbourhood = int(sys.argv[4])
+num_of_iterations = 500
+num_of_agents = 10
+neighbourhood = 5
+poacher_neighbourhood = 5
 agents = []
 poacher = agentframework.Agent(environment, agents)
 kill_count = 0
