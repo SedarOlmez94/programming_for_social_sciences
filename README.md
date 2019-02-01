@@ -1,6 +1,4 @@
-[![build status](
-  http://img.shields.io/travis/SedarOlmez94/programming_for_social_sciences/master.svg?style=flat)](
- https://travis-ci.org/SedarOlmez94/programming_for_social_sciences)
+[![Build Status](https://travis-ci.com/SedarOlmez94/programming_for_social_sciences.svg?branch=master)](https://travis-ci.com/SedarOlmez94/programming_for_social_sciences)
  
 # programming_for_social_sciences
 Centre for Data Analytics and Society
