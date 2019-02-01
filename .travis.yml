@@ -1,13 +1,5 @@
 language: python
 python:
   - "2.7"
-install:
-  - pip install random
-  - pip install numpy
-  - pip install operator
-  - pip install matplotlib.pyplot
-  - pip install time
-  - pip install scipy
-  
 script:
-  - Main_model
+  - test_core_code_v2
