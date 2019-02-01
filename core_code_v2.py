@@ -6,7 +6,7 @@ import matplotlib.animation
 import agentframework
 import csv
 import sys
-matplotlib.use('macosx')
+matplotlib.use('PS')
 
 # Global variables:
 environment = []
